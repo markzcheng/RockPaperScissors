@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Rock Paper Scissors</title>
+</head>
+
+<body>
+    <script>
+        function computerPlay() {
+            let computerChoice = Math.floor(Math.random() * 3);
+            if (computerChoice == 0) {
+                return "ROCK";
+            } else if (computerChoice == 1) {
+                return "PAPER";
+            } else {
+                return "SCISSORS";
+            }
+        }
+        function playerPlay() {
+            let validChoice = false;
+            let userChoice;
+            while (!validChoice) {
+                userChoice = prompt("Select rock, paper, or scissors!");
+                userChoice = userChoice.toUpperCase();
+                validChoice = userChoice == "ROCK" ||
+                    userChoice == "SCISSORS" || userChoice == "PAPER";
+                if (!validChoice) {
+                    alert("Make a valid choice!");
+                }
+            }
+            return userChoice;
+        }
+        function declareWinner() {
+            if (playerSelection == computerSelection) {
+                return "It is a tie!";
+            } else if (playerSelection == "SCISSORS" && computerSelection == "PAPER" ||
+                playerSelection == "ROCK" && computerSelection == "SCISSORS" ||
+                playerSelection == "PAPER" && computerSelection == "ROCK") {
+                return "You Win!";
+            } else {
+                return "You Lose!";
+            }
+        }
+        function outcome() {
+            if (playerSelection == computerSelection) {
+                return "";
+            } else if (playerSelection == "PAPER" && computerSelection == "SCISSORS" ||
+                playerSelection == "SCISSORS" && computerSelection == "PAPER") {
+                return "Scissors cuts Paper!";
+            } else if (playerSelection == "ROCK" && computerSelection == "SCISSORS" ||
+                playerSelection == "SCISSORS" && computerSelection == "ROCK") {
+                return "Rock smashes Scissors!"
+            } else {
+                return "Paper covers Rock!";
+            }
+        }
+        let playRound = (playerSelection, computerSelection) =>
+            declareWinner() + " " + outcome();
+        const playerSelection = playerPlay();
+        const computerSelection = computerPlay();
+        console.log(playRound(playerSelection, computerSelection));
+    </script>
+</body>
+
+</html>
