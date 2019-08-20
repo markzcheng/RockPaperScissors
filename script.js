@@ -1,12 +1,7 @@
 function computerPlay() {
-    let computerChoice = Math.floor(Math.random() * 3);
-    if (computerChoice == 0) {
-        return "ROCK";
-    } else if (computerChoice == 1) {
-        return "PAPER";
-    } else {
-        return "SCISSORS";
-    }
+    let options = ["ROCK", "PAPER", "SCISSORS"];
+    let index = Math.floor(Math.random() * 3);
+    return options[index];
 }
 function playerPlay() {
     let validChoice = false;
